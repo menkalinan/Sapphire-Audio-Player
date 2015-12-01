@@ -8,7 +8,7 @@ import main.java.com.sdx2.SapphireAudioPlayer.audio.data.TrackBuffer;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.mp3.MP3Decoder;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.mp3.MP3FileReader;
 import org.junit.Test;
-
+import org.junit.Ignore;
 import java.io.File;
 
 import static org.junit.Assert.*;
