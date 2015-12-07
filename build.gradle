@@ -1,9 +1,3 @@
-buildscript {
-  repositories {
-    mavenCentral()
-  }
-}
-
 apply plugin: "java"
 apply plugin: 'application'
 apply plugin: 'checkstyle'
@@ -23,7 +17,6 @@ repositories {
 
 
 dependencies {
-   checkstyle 'com.puppycrawl.tools:checkstyle:5.6'
    compile name: 'jaudiotagger-2.2.5'
    compile name: 'java-json-schema'
    compile name: 'jl1.0.1'
