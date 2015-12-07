@@ -1,6 +1,11 @@
 apply plugin: "java"
 apply plugin: 'application'
+apply plugin: 'checkstyle'
 
+checkstyle {
+   configFile = new File(rootDir, "checkstyle.xml")
+}
+    
 mainClassName = 'main.java.com.sdx2.SapphireAudioPlayer.SapphireMain'
 
 jar {
