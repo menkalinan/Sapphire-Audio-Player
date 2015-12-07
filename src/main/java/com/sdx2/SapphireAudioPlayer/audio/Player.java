@@ -3,7 +3,6 @@ package main.java.com.sdx2.SapphireAudioPlayer.audio;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.Playlist;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.Track;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.TrackBuffer;
-import main.java.com.sdx2.SapphireAudioPlayer.audio.io.AudioOutput;
 
 import java.util.ArrayList;
 

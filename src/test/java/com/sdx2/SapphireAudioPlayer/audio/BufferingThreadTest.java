@@ -2,8 +2,6 @@ package test.java.com.sdx2.SapphireAudioPlayer.audio;
 
 import main.java.com.sdx2.SapphireAudioPlayer.audio.BufferingThread;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.PlayThread;
-import main.java.com.sdx2.SapphireAudioPlayer.audio.Player;
-import main.java.com.sdx2.SapphireAudioPlayer.audio.data.BufferEntry;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.Track;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.TrackBuffer;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.mp3.MP3Decoder;
@@ -13,11 +11,8 @@ import org.junit.Test;
 import javax.sound.sampled.AudioFormat;
 import java.io.File;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class BufferingThreadTest {
 

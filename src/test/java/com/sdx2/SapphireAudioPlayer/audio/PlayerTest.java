@@ -4,9 +4,6 @@ import main.java.com.sdx2.SapphireAudioPlayer.audio.Player;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.Playlist;
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-import static org.junit.Assert.*;
 
 public class PlayerTest {
 

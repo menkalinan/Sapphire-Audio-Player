@@ -2,7 +2,6 @@ package main.java.com.sdx2.SapphireAudioPlayer.audio;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
-import java.util.logging.Level;
 
 public abstract class PlayerActor {
     public enum Message {

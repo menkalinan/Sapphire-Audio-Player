@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.junit.Ignore;
 import java.io.File;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import static org.assertj.core.api.Assertions.assertThat;
 

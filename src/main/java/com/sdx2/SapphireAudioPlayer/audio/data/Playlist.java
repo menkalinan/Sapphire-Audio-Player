@@ -1,11 +1,8 @@
 package main.java.com.sdx2.SapphireAudioPlayer.audio.data;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
