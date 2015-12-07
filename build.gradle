@@ -38,9 +38,19 @@ checkstyle {
 
 def getVersionName = { ->
     def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'describe', '--tags'
-        standardOutput = stdout
+	def os = System.getProperty("os.name").toLowerCase()
+	if (!os.contains("windows")) {
+		exec {
+			executable "/bin/sh"
+			args "-c", "echo -n `git describe --tags`"
+			standardOutput = stdout
+		}
+	} else {
+		exec {
+			executable "cmd"
+			args "/c", "git describe --tags"
+			standardOutput = stdout
+		}
     }
     return stdout.toString().trim()
 }
