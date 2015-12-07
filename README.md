@@ -1,5 +1,5 @@
 # Sapphire-Audio-Player
-
+[![Build Status](https://travis-ci.org/menkalinan/Sapphire-Audio-Player.svg?branch=develop)](https://travis-ci.org/menkalinan/Sapphire-Audio-Player) 
 # Project setup
 Clone the project repository using git:
 
