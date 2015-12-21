@@ -29,6 +29,7 @@ public class PlayThread extends PlayerActor implements Runnable {
 
     @Override
     public void process(Message message) {
+        Object[] params = message.getParams();
         switch (message) {
             case PAUSE:
                 setState(!active);
@@ -41,6 +42,9 @@ public class PlayThread extends PlayerActor implements Runnable {
                 break;
             case FLUSH:
                 output.flush();
+                break;
+            case VOLUME:
+                output.setVolume((Float) params[0]);
                 break;
         }
     }

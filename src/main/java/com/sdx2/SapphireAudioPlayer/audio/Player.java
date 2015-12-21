@@ -112,4 +112,7 @@ public class Player {
         listeners.remove(listener);
     }
 
+    public void setVolume(float volume){
+        playThread.send(PlayerActor.Message.VOLUME, volume);
+    }
 }

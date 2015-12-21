@@ -13,6 +13,9 @@ import org.jaudiotagger.tag.id3.framebody.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
 
 import static java.lang.Thread.sleep;
@@ -23,6 +26,18 @@ public class MP3FileReader {
         Track track = new Track();
         track.setLocation(file.toURI().toString());
         return readSingle(track);
+    }
+
+    public Track read(String url) {
+        Track track = new Track();
+        try {
+            track.setLocation(new URL(url).toURI().toString());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return (track);
     }
 
     public Track readSingle(Track track) {
@@ -132,19 +147,11 @@ public class MP3FileReader {
 
     public static void main(String[] args) {
         MP3FileReader mp3FileReader = new MP3FileReader();
+        //Track track = mp3FileReader.read(("https://cs7-4v4.vk-cdn.net/p21/191e9777a72ebb.mp3?extra=QLBCEOB4GPYjk0UHgF0mvroxHcjni8vEnoiZkLGG9Hxy8a_dAdnaU1GZUuWYWKVqf_YeYoiXloNVfOGKJ_5CI4cIKIRLcbo"));
         Track track = mp3FileReader.read(new File("test.mp3"));
-        MP3Decoder mp3Decoder = new MP3Decoder();
-        mp3Decoder.open(track);
-        byte [] buf = new byte[65536];
-        mp3Decoder.seekSample(100000);
-        mp3Decoder.decode(buf);
         Player player = new Player();
         player.open(track);
-        try {
-            player.seek(AudioUtil.millisToSamples(10, track.getSampleRate()));
-            sleep(10000000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        player.setVolume(0.9f);
+
     }
 }

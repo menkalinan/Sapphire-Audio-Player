@@ -5,11 +5,9 @@ import main.java.com.sdx2.SapphireAudioPlayer.audio.util.AudioUtil;
 import javazoom.jl.decoder.*;
 
 import javax.sound.sampled.AudioFormat;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URI;
+import java.net.URLConnection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -123,8 +121,9 @@ public class MP3Decoder {
             else {
                 track.setCodec("MP3 Stream");
                 streaming = true;
-                //fis = SInputStream.create(track);
-                fis = null;
+                URLConnection connection = track.getLocation().toURL().openConnection();
+
+                fis = new BufferedInputStream(connection.getInputStream());
             }
             bitstream = new Bitstream(fis);
             Header header = bitstream.readFrame();

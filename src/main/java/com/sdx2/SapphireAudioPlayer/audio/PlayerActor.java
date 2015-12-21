@@ -5,7 +5,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 public abstract class PlayerActor {
     public enum Message {
-        PLAY, PAUSE, STOP, FLUSH, OPEN, SEEK;
+        PLAY, PAUSE, STOP, FLUSH, OPEN, SEEK, VOLUME;
 
         private Object[] params;
         public Object[] getParams() {
