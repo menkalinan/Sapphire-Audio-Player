@@ -1,0 +1,155 @@
+@font-face {
+    font-family: iris;
+    src: url(../fonts/iris.ttf);
+}
+body{
+/** */background: url(../img/bg.png);
+	background-size: contain;
+	margin: 0;
+}
+.clear{
+    width: 100%;
+    display: -webkit-box;
+}
+
+span{
+    font-family: iris;
+    font-size: 26px;
+}
+
+
+/************** CONTROL BUTTONS **************/
+#head-control{
+	height: 90px;
+	background: url(../img/head-bg.png);
+}
+
+#player{
+	position: fixed;
+	width: 100%;
+	margin-top: -100px;
+}
+#control{
+    display: table;
+    margin: 0 auto;
+}
+
+#button-group, #repeat,#mix{
+	display: inline-block;
+	margin-top: 30px;;
+}
+
+.but-control, #repeat,#mix{
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    margin-left: 10px;
+}
+.but-control:first-child{
+    margin-left: 0;
+}
+
+.but-control:hover{
+    cursor: pointer;
+}
+
+#volume{
+	position: relative;
+	height: 30px;
+	width: 150px;
+	display: inline-block;
+    vertical-align: top;
+    margin-top: 25px;
+}
+.speaker{
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	position: absolute;
+}
+/************** TRACK SCROLLER **************/
+#volumeRange{
+    display: inline-block;
+    width: 100px;
+	position: absolute;
+	top: 10px;
+	left: 45px;
+}
+
+input {
+  background: #1599ff;
+  border: 1px solid #000;
+  height: 3px;
+  -webkit-appearance: none;
+}
+
+input::-webkit-slider-thumb {
+  background-color: transparent;
+  border-radius: 0;
+  height: 5px;
+  width: 1px;
+  -webkit-appearance: none;
+}
+
+#track-scroll{
+	margin: 10px auto 0;
+	display: table;
+	width: 60%;
+}
+  
+.menu{
+	height: 28px;
+	width: 28px;
+	display: block;
+	float: right;
+	margin: -44px 10% 0 0;
+}
+
+.content{
+	position: relative;
+	margin-top: 100px;	
+}
+
+#tracklist{
+	width: 60%;
+	min-height: 200px;
+	background: url(../img/bg2.png);
+	background-size: cover;
+	background-repeat: repeat-y;
+	margin: 0 auto;
+	border-radius: 0 0 5px 5px;
+}
+
+#tracklist ul{
+	list-style: none;
+	padding-right: 40px;
+	padding-top: 5px;
+}
+
+.track {
+	color: white;
+	border-bottom: 1px solid #fff;
+	margin-top: 10px;
+}
+
+.search{
+	position: absolute;
+	left: 10%;
+	top: 10%;
+}
+.search img{
+	height: 50px;
+	width: 50px;
+	background: url(../img/head-bg.png);
+	border-radius: 50%;
+}
+
+
+#vk-in{
+    width: 100px;
+    height: 100px;
+    background: #449;
+}
+a{
+    display: none;
+}

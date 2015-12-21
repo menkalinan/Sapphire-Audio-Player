@@ -1,8 +1,6 @@
 package main.java.com.sdx2.SapphireAudioPlayer;
 
-/**
- * Created by Äלטענמ on 26.11.2015.
- */
+
 public class Song {
     private String artist;
     private String title;

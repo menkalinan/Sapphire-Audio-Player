@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+	
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>	
+	<div id="player">
+	
+	      <!--  <div id="logo"> 
+	
+	            <img src="img/logo.png" alt="Лого">
+	
+	        </div> -->
+	
+	        <div id="head-control">
+	
+	            <div id="control">
+					<div id="volume">
+						<img src="img/volume.svg" class="speaker"/>
+						<input type="range" min="0" max="100" value="0" id="volumeRange"/>
+					</div>
+	                <div id="button-group">
+						<img class="but-control" src="img/prev2.svg" id="prev"/>
+						<img class="but-control" src="img/prev.svg" id="rewind-back"/>
+						<img class="but-control" src="img/play.svg" id="play"/>
+						<img class="but-control" src="img/next.svg" id="rewind-forward"/>
+						<img class="but-control" src="img/next2.svg" id="next"/>
+					</div>
+					
+					<img src="img/repeat.svg" id="repeat"/>
+					<img src="img/mix.svg" id="mix"/>
+	            </div>
+	
+	        <div class="clear"></div>
+	
+	        <input type="range" min="0" max="100" value="0" id="track-scroll"/>
+	
+			<img src="img/menu.svg" class="menu"></div>
+	
+		</div>
+		
+		<div class="content">
+			<div class="search">
+				<img src="img/search.svg" alt=""/>
+			</div>
+			<div id="tracklist">
+			<ul>
+				<li class="track">Track - track</li>
+				<li class="track">Track - track</li>
+				<li class="track">Track - track</li>
+			</ul>
+		</div>
+		</div>
+		   
+	
+	<script src="js/script.js"></script>
+	    <script type="text/javascript" >
+			$( 'input#volumeRange' ).on( 'input', function( ) {
+			  $( this ).css( 'background', 'linear-gradient(to right, #163c74 0%, #163c74 ' + this.value + '%, #1599ff ' + this.value + '%, #1599ff 100%' );
+			} );
+			$( 'input#track-scroll' ).on( 'input', function( ) {
+			  $( this ).css( 'background', 'linear-gradient(to right, #163c74 0%, #163c74 ' + this.value + '%, #1599ff ' + this.value + '%, #1599ff 100%' );
+			} );
+		</script>
+</body>
+</html>

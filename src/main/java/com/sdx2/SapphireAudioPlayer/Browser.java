@@ -8,8 +8,13 @@ import javafx.geometry.VPos;
 import javafx.scene.layout.Region;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+import main.java.com.sdx2.SapphireAudioPlayer.audio.data.Track;
+import main.java.com.sdx2.SapphireAudioPlayer.audio.mp3.MP3FileReader;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -18,6 +23,8 @@ class Browser extends Region {
     final WebView browser = new WebView();
     final WebEngine webEngine = browser.getEngine();
     private VKWorker vk;
+    private int position = 0;
+    private Song currentTrack;
     /**
      * state[0] - pause(true)/play(false)
      * state[1] - is authorized? (no - false)
@@ -44,6 +51,11 @@ class Browser extends Region {
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>() {
             public void changed(ObservableValue ov, Worker.State oldState, Worker.State newState) {
                 if (newState == Worker.State.SUCCEEDED && state[2]) {
+                    MP3FileReader mp3FileReader = new MP3FileReader();
+                    currentTrack = new Song();
+                    currentTrack.setUrl("https://cs7-4v4.vk-cdn.net/p21/191e9777a72ebb.mp3?extra=QLBCEOB4GPYjk0UHgF0mvroxHcjni8vEnoiZkLGG9Hxy8a_dAdnbVlOZUuWYWKVqf_YeYoiXloNVfOHfc_1LIIxdLYQZc70");
+                    Track track = mp3FileReader.read(new File("test.mp3"));
+                    final Player[] player = new Player[1];
                     org.w3c.dom.Document doc = webEngine.getDocument();
                     // STOP LISTENER
                     org.w3c.dom.events.EventListener stopListener = evt -> System.out.println("stop");
@@ -55,8 +67,20 @@ class Browser extends Region {
                         System.out.println("play");
                         if (!state[0]) {
                             state[0] = true;
+                            try {
+                                player[0] = new Player(new URL(currentTrack.getUrl()).openStream());
+                                player[0].play(position);
+                            } catch (JavaLayerException e) {
+                                e.printStackTrace();
+                            } catch (MalformedURLException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         } else {
-
+                            state[0] = false;
+                            position = player[0].getPosition();
+                            player[0].close();
                         }
                     };
                     org.w3c.dom.Element el2 = doc.getElementById("play");

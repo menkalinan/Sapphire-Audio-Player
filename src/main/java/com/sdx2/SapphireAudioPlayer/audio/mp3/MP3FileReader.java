@@ -2,10 +2,12 @@ package main.java.com.sdx2.SapphireAudioPlayer.audio.mp3;
 
 import main.java.com.sdx2.SapphireAudioPlayer.audio.Player;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.Track;
-import main.java.com.sdx2.SapphireAudioPlayer.audio.util.AudioUtil;
 import org.jaudiotagger.audio.mp3.MP3AudioHeader;
 import org.jaudiotagger.audio.mp3.MP3File;
-import org.jaudiotagger.tag.*;
+import org.jaudiotagger.tag.FieldKey;
+import org.jaudiotagger.tag.KeyNotFoundException;
+import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.TagField;
 import org.jaudiotagger.tag.id3.ID3v1Tag;
 import org.jaudiotagger.tag.id3.ID3v24Frame;
 import org.jaudiotagger.tag.id3.ID3v24Tag;
@@ -17,8 +19,6 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
-
-import static java.lang.Thread.sleep;
 
 public class MP3FileReader {
 
