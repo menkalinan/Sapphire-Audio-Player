@@ -1,12 +1,19 @@
 package main.java.com.sdx2.SapphireAudioPlayer;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
 public class Song {
     private String artist;
     private String title;
     private String url;
     private String duration;
     private String lyricsId;
+    private String fileLocation;
 
     public String getArtist() {
         return artist;
@@ -46,6 +53,23 @@ public class Song {
 
     public void setLyricsId(String lyricsId) {
         this.lyricsId = lyricsId;
+    }
+
+    public InputStream getInputStream(){
+        if(url!=null){
+            try {
+                return (new URL(url).openStream());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else{
+            try {
+                return new FileInputStream(fileLocation);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 }
 

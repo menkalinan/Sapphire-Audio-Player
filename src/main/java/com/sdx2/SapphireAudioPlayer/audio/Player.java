@@ -77,6 +77,10 @@ public class Player {
         return playThread.getPlaybackTime();
     }
 
+    public long getCurrentSample(){
+        return playThread.getCurrentSample();
+    }
+
     public boolean isPlaying() {
         return playThread.isActive() && getTrack() != null;
     }

@@ -1,5 +1,6 @@
 package main.java.com.sdx2.SapphireAudioPlayer.audio.mp3;
 
+import javazoom.jl.decoder.JavaLayerException;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.Player;
 import main.java.com.sdx2.SapphireAudioPlayer.audio.data.Track;
 import org.jaudiotagger.audio.mp3.MP3AudioHeader;
@@ -14,6 +15,8 @@ import org.jaudiotagger.tag.id3.ID3v24Tag;
 import org.jaudiotagger.tag.id3.framebody.*;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -37,6 +40,7 @@ public class MP3FileReader {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+
         return (track);
     }
 
@@ -148,10 +152,40 @@ public class MP3FileReader {
     public static void main(String[] args) {
         MP3FileReader mp3FileReader = new MP3FileReader();
         //Track track = mp3FileReader.read(("https://cs7-4v4.vk-cdn.net/p21/191e9777a72ebb.mp3?extra=QLBCEOB4GPYjk0UHgF0mvroxHcjni8vEnoiZkLGG9Hxy8a_dAdnaU1GZUuWYWKVqf_YeYoiXloNVfOGKJ_5CI4cIKIRLcbo"));
-        Track track = mp3FileReader.read(new File("test.mp3"));
-        Player player = new Player();
-        player.open(track);
-        player.setVolume(0.9f);
+        String u = "https://cs7-4v4.vk-cdn.net/p21/191e9777a72ebb.mp3?extra=QLBCEOB4GPYjk0UHgF0mvroxHcjni8vEnoiZkLGG9Hxy8a_dAdnbVlOZUuWYWKVqf_YeYoiXloNVfOHfc_1LIIxdLYQZc70";
+        javazoom.jl.player.Player jplayer = null;
+        try {
+            try {
+                jplayer = new javazoom.jl.player.Player( new java.net.URL(u).openStream());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (JavaLayerException e) {
+            e.printStackTrace();
+        }
+        try {
+            jplayer.play();
+        } catch (JavaLayerException e) {
+            e.printStackTrace();
+        }
+        System.out.println("gg");
+
+//        Track track = mp3FileReader.read(new File("test.mp3"));
+//        Player player = new Player();
+//        player.open(track);
+//        player.setVolume(0.9f);
+//
+//        try {
+//            sleep(22);
+//            long d = player.getCurrentSample();
+//            int g = 0;
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 }
